@@ -7,7 +7,9 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
     public float moveSpeed;
+    public float jumpPower;
     private Vector2 curMovementInput;
+    public LayerMask groundLayerMask;
 
     [Header("Look")]
     public Transform cameraContainer;
@@ -52,7 +54,7 @@ public class PlayerController : MonoBehaviour
         _rigidbody.velocity = dir; // rigidbody에 값을 넣어 질량과 관성을 무시하고 움직이게 만든다, 저항이 없어 속도가 동일
     }
 
-    void CameraLook() // 현제 캐릭터 리소스가 없기 때문에 그냥 카메라를 움직임
+    void CameraLook()
     {
         camCurXRot += mouseDelta.y * lookSensitivity;
         camCurXRot = Mathf.Clamp(camCurXRot, minXLook, maxXLook); // 최솟값보다 작아지면 최솟값 반환 최댓값보다 커지면 최댓값 반환
@@ -61,7 +63,7 @@ public class PlayerController : MonoBehaviour
         transform.eulerAngles += new Vector3(0, mouseDelta.x * lookSensitivity, 0); // 캐릭터 y축을 돌려 시야의 좌 우 조정
     }
 
-    public void OnMove(InputAction.CallbackContext context) // 현제 상태를 받아온다 // Player Input의 Events에 등록할 함수
+    public void OnMove(InputAction.CallbackContext context) // 현재 상태를 받아온다 // Player Input의 Events에 등록할 함수
     {
         if(context.phase == InputActionPhase.Performed) // 키가 눌려있는 상태일때
         {
@@ -76,5 +78,35 @@ public class PlayerController : MonoBehaviour
     public void OnLook(InputAction.CallbackContext context) // Player Input의 Events에 등록할 함수
     {
         mouseDelta = context.ReadValue<Vector2>(); // 마우스는 phase가 없기 때문에 값을 받기만 하면 됨
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if(context.phase == InputActionPhase.Started && IsGrounded())
+        {
+            _rigidbody.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
+        }
+    }
+
+    bool IsGrounded() // 플레이어가 바닥에 닿았는지 확인
+    {
+        Ray[] rays = new Ray[4] // 플레이어를 기준으로 책상 다리처럼 4개를 만들어줄 예정
+        {
+            // 각 Ray의 시작점을 정해줌 그러고 방향 정해줌
+            new Ray(transform.position + (transform.forward * 0.2f) + (transform.up * 0.01f), Vector3.down),
+            new Ray(transform.position + (-transform.forward * 0.2f) + (transform.up * 0.01f), Vector3.down),
+            new Ray(transform.position + (transform.right * 0.2f) + (transform.up * 0.01f), Vector3.down),
+            new Ray(transform.position + (-transform.right * 0.2f) + (transform.up * 0.01f), Vector3.down)
+        };
+
+        for(int i = 0; i < rays.Length; i++)
+        {
+            if (Physics.Raycast(rays[i], 0.1f, groundLayerMask)) // 0.1f 길이의 Ray를 쏴서 groundLayerMask에 해당하는 애들만 검출
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
