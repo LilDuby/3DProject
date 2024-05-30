@@ -51,11 +51,11 @@ public class PalyerPickUp : MonoBehaviour
                 {
                     case ConsumableType.Health:
                         condition.Heal(PlayerManager.Instance.Player.itemData.consumables.value);
+                        ThrowPickUp();
+                        PlayerManager.Instance.Player.itemData = null;
                         break;
                 }
             }
-            ThrowPickUp();
-            PlayerManager.Instance.Player.itemData = null;
         }
     }
 }
