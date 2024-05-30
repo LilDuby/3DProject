@@ -15,8 +15,8 @@ MonoBehaviour:
   displayName: "\uB3CC"
   description: "\uADF8\uB0E5 \uB3CC\uC785\uB2C8\uB2E4."
   type: 0
-  dropPrefab: {fileID: 0}
+  dropPrefab: {fileID: 3863311261775996264, guid: 42c557f98200ee04c80fc916b9fb069a, type: 3}
   consumables:
     type: 0
     value: 0
-  PickUpPrefeb: {fileID: 3863311261775996264, guid: 42c557f98200ee04c80fc916b9fb069a, type: 3}
+  PickUpPrefeb: {fileID: 7251842369862007259, guid: a5821da972c45b04a925137b6eeac82e, type: 3}

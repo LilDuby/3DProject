@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Item_Sword
   m_EditorClassIdentifier: 
   displayName: "\uAC80"
-  description: "\uADF8\uB0E5 \uB3C4\uB07C\uC785\uB2C8\uB2E4."
+  description: "\uADF8\uB0E5 \uAC80\uC785\uB2C8\uB2E4."
   type: 0
-  dropPrefab: {fileID: 0}
+  dropPrefab: {fileID: 5968392372359405990, guid: 72fb2c9c7089f1f4abb67ef3f8c27029, type: 3}
   consumables:
     type: 0
     value: 0
-  PickUpPrefeb: {fileID: 5968392372359405990, guid: 72fb2c9c7089f1f4abb67ef3f8c27029, type: 3}
+  PickUpPrefeb: {fileID: 7738896117352842158, guid: 8f177cb91d40046469a5a558bbaf992c, type: 3}
