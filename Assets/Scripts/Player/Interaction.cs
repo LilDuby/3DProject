@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Interaction : MonoBehaviour
 {
@@ -54,5 +55,31 @@ public class Interaction : MonoBehaviour
     {
         promptText.gameObject.SetActive(true);
         promptText.text = curInteractable.GetInteractPrompt();
+    }
+
+    public void OnInteractPickUp(InputAction.CallbackContext context)
+    {
+        if(context.phase == InputActionPhase.Started && curInteractable != null && PlayerManager.Instance.Player.itemData == null)
+        {
+            bool isResource = curInteractable.OnInteract();
+            if(isResource)
+            {
+                curInteractGameObject = null;
+                curInteractable = null;
+                promptText.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    public void OnInteractThrow(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started && PlayerManager.Instance.Player.itemData != null)
+        {
+            // 아이템 생성
+            PlayerManager.Instance.Player.pickUp.ThrowItem(PlayerManager.Instance.Player.itemData);
+            // 들고있는 오브젝트 삭제
+            PlayerManager.Instance.Player.pickUp.ThrowPickUp();
+            PlayerManager.Instance.Player.itemData = null;
+        }
     }
 }

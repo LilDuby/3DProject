@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Item_JumpPad
   m_EditorClassIdentifier: 
   displayName: "\uC810\uD504\uB300"
-  description: "\uC62C\uB77C\uAC00\uBA74 \uB9E4\uC6B0 \uB192\uC774 \uB0A0\uC544\uAC04\uB2E4"
+  description: "\uC62C\uB77C\uAC00\uBA74 \uB9E4\uC6B0 \uB192\uC774 \uB0A0\uC544\uAC11\uB2C8\uB2E4."
+  type: 2

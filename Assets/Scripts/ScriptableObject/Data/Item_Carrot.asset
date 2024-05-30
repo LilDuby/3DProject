@@ -13,4 +13,10 @@ MonoBehaviour:
   m_Name: Item_Carrot
   m_EditorClassIdentifier: 
   displayName: "\uB2F9\uADFC"
-  description: "\uADF8\uB0E5 \uB2F9\uADFC"
+  description: "\uC0AC\uC6A9 \uC2DC \uCCB4\uB825\uC744 \uD68C\uBCF5\uD569\uB2C8\uB2E4."
+  type: 1
+  dropPrefab: {fileID: 0}
+  consumables:
+    type: 0
+    value: 50
+  PickUpPrefeb: {fileID: 7831731844414463188, guid: 939155560c0c34743bd8be7e957c5241, type: 3}

@@ -13,4 +13,10 @@ MonoBehaviour:
   m_Name: Item_Ax
   m_EditorClassIdentifier: 
   displayName: "\uB3C4\uB07C"
-  description: "\uADF8\uB0E5 \uB3C4\uB07C"
+  description: "\uADF8\uB0E5 \uB3C4\uB07C\uC785\uB2C8\uB2E4."
+  type: 0
+  dropPrefab: {fileID: 0}
+  consumables:
+    type: 0
+    value: 0
+  PickUpPrefeb: {fileID: 7648019553160149981, guid: 72678f25059cbb645adb2b2731da583e, type: 3}

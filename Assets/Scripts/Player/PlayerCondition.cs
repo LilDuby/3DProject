@@ -28,4 +28,9 @@ public class PlayerCondition : MonoBehaviour, IDamagable
         health.Subtract(damage);
         onTakeDamage?.Invoke();
     }
+
+    public void Heal(float amount)
+    {
+        health.Plus(amount);
+    }
 }
