@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3176607ad83076d4d9e32ca825fbdad0, type: 3}
+  m_Name: Item_Test
+  m_EditorClassIdentifier: 
+  displayName: "\uBC84\uC12F"
+  description: "\uC0AC\uC6A9\uC2DC 10\uCD08\uAC04 \uC774\uB3D9\uC18D\uB3C4\uAC00
+    \uC0C1\uC2B9\uD55C\uB2E4."
+  type: 1
+  dropPrefab: {fileID: 4395559970855289667, guid: 1e9aba5fb5da8b44bab085dfdcedc4e9, type: 3}
+  consumables:
+    type: 1
+    value: 10
+    time: 10
+  PickUpPrefeb: {fileID: 3091248559100287893, guid: 3599172ba2e18f641a8f26febc5b6f65, type: 3}

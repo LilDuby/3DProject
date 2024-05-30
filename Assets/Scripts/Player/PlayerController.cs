@@ -109,4 +109,17 @@ public class PlayerController : MonoBehaviour
 
         return false;
     }
+
+    IEnumerator coroutine;
+    IEnumerator myCoroutine(float amount, float time)
+    {
+        moveSpeed = amount;
+        yield return new WaitForSeconds(time);
+        moveSpeed = 5;
+    }
+    public void SpeedUp(float amount, float time)
+    {
+        coroutine = myCoroutine(amount, time);
+        StartCoroutine(coroutine);
+    }
 }

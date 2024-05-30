@@ -54,6 +54,11 @@ public class PalyerPickUp : MonoBehaviour
                         ThrowPickUp();
                         PlayerManager.Instance.Player.itemData = null;
                         break;
+                    case ConsumableType.Buff:
+                        controller.SpeedUp(PlayerManager.Instance.Player.itemData.consumables.value, PlayerManager.Instance.Player.itemData.consumables.time);
+                        ThrowPickUp();
+                        PlayerManager.Instance.Player.itemData = null;
+                        break;
                 }
             }
         }
